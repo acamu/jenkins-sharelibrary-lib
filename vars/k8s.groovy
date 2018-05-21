@@ -1,5 +1,14 @@
 import groovy.json.*
 
+  /*
+    Create the kubernetes namespace
+ */
+def createNamespace (namespace) {
+    echo "Creating namespace ${namespace} if needed"
+
+    sh "[ ! -z \"\$(kubectl get ns ${namespace} -o name 2>/dev/null)\" ] || kubectl create ns ${namespace}"
+}
+
 def waitForServices() {
   sh "kubectl get svc -o json > services.json --kubeconfig=kubeconfig"
  
