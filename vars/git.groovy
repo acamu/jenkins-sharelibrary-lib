@@ -23,3 +23,6 @@ def git_tag_push(String credentialId) {
     }
 }
 
+def getReleasedVersionMaven() {
+ return (readFile('pom.xml') = ~'<version>(.+)-SNAPSHOT</version>')[0][1]
+}
