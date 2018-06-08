@@ -12,8 +12,6 @@ import groovy.json.JsonSlurper
 String callHTTPGET(String urlToCall, String item) {
  println 'call '+ urlToCall + ' ' + item 
  
-def location = System.console().readLine( 'Location: ' )
-
 def connection = new URL( "urlToCall")
         .openConnection() as HttpURLConnection
 
