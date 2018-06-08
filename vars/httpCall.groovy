@@ -9,7 +9,7 @@ import static groovyx.net.http.ContentType.TEXT
 import static groovyx.net.http.ContentType.JSON
 import groovy.json.JsonSlurper
 
-String callHTTPGET8(String urlToCall, String item) {
+String callHTTPGET(String urlToCall, String item) {
  println 'call '+ urlToCall + ' ' + item 
  
 def connection = new URL(urlToCall)
