@@ -26,17 +26,17 @@ println 'call '+ urlToCall + ' ' + item
      return reader.text
    }
   
-  response.failure = { 
+  response.failure = { resp ->
      println 'failure'
   }
 
-   response.'400' = {
+   response.'400' = { resp ->
      println 'Bad Request'
     
     return ''
    }
   
-   response.'404' = {
+   response.'404' = { resp ->
      println 'Not found'
     
     return ''
