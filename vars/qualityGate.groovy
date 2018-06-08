@@ -1,5 +1,6 @@
 import groovy.json.*
  
+@NonCPS
 boolean checkQualityGateConformity(String test, String item) {
   boolean returnValue = true
   def jsonSlurper = new JsonSlurper()
