@@ -9,7 +9,7 @@ import static groovyx.net.http.ContentType.TEXT
 import static groovyx.net.http.ContentType.JSON
 import groovy.json.JsonSlurper
 
-String callHTTPGET(String urlToCall, String item) {
+String callHTTPGET111(String urlToCall, String item) {
  println 'call '+ urlToCall + ' ' + item 
  
 def connection = new URL(urlToCall).openConnection() as HttpURLConnection
@@ -42,17 +42,17 @@ connection.setRequestProperty( 'Accept', 'application/json' )
 
 
 
-String callHTTPGET34(String urlToCall, String item) {
+String callHTTPGET(String urlToCall, String item) {
  
 def http = new HTTPBuilder()
  
 println 'call '+ urlToCall + ' ' + item 
  
- http.request('http://www.leveluplunch.com', GET, TEXT) { req ->
+ http.request(urlToCall, GET, TEXT) { req ->
   // uri.path = item // overrides any path in the default URL
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
-  headers.'User-Agent' = "Mozilla/5.0"
-  // headers.Accept = 'application/json'
+  headers.'User-Agent' = "groovy-2.4.4"
+  headers.Accept = 'application/json'
 
    response.success = { resp, reader ->
      assert resp.statusLine.statusCode == 200
