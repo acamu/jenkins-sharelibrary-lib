@@ -12,7 +12,7 @@ import groovy.json.JsonSlurper
 String callHTTPGET(String urlToCall, String item) {
  println 'call '+ urlToCall + ' ' + item 
  
-def connection = new URL( "urlToCall")
+def connection = new URL(urlToCall)
         .openConnection() as HttpURLConnection
 
 // set some headers
