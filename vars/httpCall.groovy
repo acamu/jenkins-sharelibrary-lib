@@ -12,11 +12,11 @@ String callHTTPGET(String urlToCall, String item) {
  
 println 'call '+ urlToCall + ' ' + item
  
- http.request( urlToCall, GET, JSON ) { req ->
-   uri.path = item
+ http.request( urlToCall+item, GET, JSON ) { req ->
+  // uri.path = item
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
   // headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
-   headers.Accept = 'application/json'
+  // headers.Accept = 'application/json'
 
    response.success = { resp, reader ->
      assert resp.statusLine.statusCode == 200
