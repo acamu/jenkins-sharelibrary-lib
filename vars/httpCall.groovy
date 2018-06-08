@@ -26,7 +26,7 @@ println 'call '+ urlToCall + ' ' + item
      return reader.text
    }
   
-  response.failure ={
+  response.failure = { resp, reader ->
      println "Got response: ${resp.statusLine}"
      println "Content-Type: ${resp.headers.'Content-Type'}"
   }
