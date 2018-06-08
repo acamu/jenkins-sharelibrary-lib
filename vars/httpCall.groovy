@@ -24,10 +24,8 @@ connection.setRequestProperty( 'Accept', 'application/json' )
         // get the JSON response
        // def json = connection.inputStream.withCloseable { inStream ->
         //    new JsonSlurper().parse( inStream as InputStream )
-
+    //}
       println 'GOOD'
-        }
-
         // extract some data from the JSON, printing a report
       //  def item = json.query.results.channel.item
       //  println item.title
