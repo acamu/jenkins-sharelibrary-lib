@@ -13,7 +13,7 @@ String callHTTPGET(String urlToCall, String item) {
  
 println 'call '+ urlToCall + ' ' + item
  
- http.request( urlToCall+item, GET, TEXT  ) { req ->
+ http.request( urlToCall, GET, TEXT) { req ->
   // uri.path = item // overrides any path in the default URL
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
   headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
