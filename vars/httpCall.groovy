@@ -9,9 +9,11 @@ import static groovyx.net.http.ContentType.JSON
 
 String callHTTPGET(String urlToCall, String item) {
  def http = new HTTPBuilder()
-println 'call'
+ 
+println 'call '+ urlToCall
+ 
  http.request( urlToCall, GET, JSON ) { req ->
-  // uri.path = '/'
+   uri.path = item
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
   // headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
    headers.Accept = 'application/json'
