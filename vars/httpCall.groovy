@@ -30,7 +30,7 @@ println 'call'
     return ''
    }
  }
- return ''
+ return '-1'
 }
 
 String callHTTPGET1(String urlToCall, String item) {
