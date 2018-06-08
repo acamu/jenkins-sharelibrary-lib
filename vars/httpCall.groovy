@@ -15,7 +15,7 @@ println 'call '+ urlToCall + ' ' + item
  http.request( urlToCall+item, GET, JSON ) { req ->
   // uri.path = item // overrides any path in the default URL
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
-  // headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
+  headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
   // headers.Accept = 'application/json'
 
    response.success = { resp, reader ->
