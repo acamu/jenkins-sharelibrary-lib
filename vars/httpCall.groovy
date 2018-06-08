@@ -20,12 +20,13 @@ connection.setRequestProperty( 'Accept', 'application/json' )
 
     if ( connection.responseCode == 200 ) {
      // get the response code - automatically sends the request
-      println connection.responseCode + ": " + connection.inputStream.text
+     String dataaa = connection.inputStream.text
+      println connection.responseCode + ": " + dataaa
         // get the JSON response
        // def json = connection.inputStream.withCloseable { inStream ->
         //    new JsonSlurper().parse( inStream as InputStream )
     //}
-      return connection.inputStream.text
+      return dataaa
         // extract some data from the JSON, printing a report
       //  def item = json.query.results.channel.item
       //  println item.title
