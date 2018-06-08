@@ -7,15 +7,14 @@ import static groovyx.net.http.Method.GET
 import static groovyx.net.http.ContentType.HTML
 import static groovyx.net.http.ContentType.JSON
 
-String callHTTPGET1(String urlToCall, String item) {
+String callHTTPGET(String urlToCall, String item) {
 def http = new HTTPBuilder(urlToCall)
  
 http.get( path : '/', contentType : JSON, query : [q:'Groovy'] ) { resp, reader ->
- 
   println "response status: ${resp.statusLine}"
   println 'Headers: -----------'
   println 'Response data: -----'
-  System.out << reader
+  println reader
   println '\n--------------------'
  }
 }
