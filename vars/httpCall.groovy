@@ -11,9 +11,9 @@ String callHTTPGET(String urlToCall, String item) {
  def http = new HTTPBuilder()
 println 'call'
  http.request( urlToCall, GET, JSON ) { req ->
-   uri.path = '/'
-   uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
-   headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
+  // uri.path = '/'
+  // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
+  // headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
    headers.Accept = 'application/json'
 
    response.success = { resp, reader ->
