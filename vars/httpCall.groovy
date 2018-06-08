@@ -13,6 +13,11 @@ String callHTTPGET(String urlToCall, String item) {
  
 println 'call '+ urlToCall + ' ' + item
  
+ def http = new groovyx.net.http.HTTPBuilder('http://www.google.fr')
+println http
+ 
+ 
+ 
  http.request('https://jsonplaceholder.typicode.com/posts/1', GET, JSON) { req ->
   // uri.path = item // overrides any path in the default URL
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
