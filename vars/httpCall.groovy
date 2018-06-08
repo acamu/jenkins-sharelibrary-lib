@@ -26,6 +26,12 @@ println 'call '+ urlToCall + ' ' + item
      return reader.text
    }
 
+   response.'400' = {
+     println 'Bad Request'
+    
+    return ''
+   }
+  
    response.'404' = {
      println 'Not found'
     
