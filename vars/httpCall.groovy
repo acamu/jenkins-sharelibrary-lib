@@ -10,8 +10,8 @@ String callHTTPGET(String urlToCall, String item) {
 
 HTTPBuilder http = new HTTPBuilder(urlToCall, ContentType.JSON);
 http.headers.Accept = ContentType.JSON
-http.parser[ContentType.JSON] = http.parser.'application/json'
-http.request(Method.GET) {
+http.parser[JSON] = http.parser.'application/json'
+http.request(GET) {
     response.success = { resp, json ->
        // println json.toString()         // Not valid JSON
         println JsonOutput.toJson(json) // Valid JSON
