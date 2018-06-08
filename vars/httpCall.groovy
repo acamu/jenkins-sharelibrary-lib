@@ -24,7 +24,7 @@ if ( connection.responseCode == 200 ) {
     // get the JSON response
    // def json = connection.inputStream.withCloseable { inStream ->
     //    new JsonSlurper().parse( inStream as InputStream )
-   println(connection.getInputStream().getText());
+   println connection.inputStream.text
     }
 
  println 'GOOD'
