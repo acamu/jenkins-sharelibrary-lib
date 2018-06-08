@@ -13,13 +13,14 @@ HTTPBuilder http = new HTTPBuilder(urlToCall, JSON);
     
     println urlToCall
     
-http.headers.Accept = JSON
-http.parser[JSON] = http.parser.'application/json'
+//http.headers.Accept = JSON
+//http.parser[JSON] = http.parser.'application/json'
 http.request(GET) {
     response.success = { resp, json ->
        // println json.toString()         // Not valid JSON
-        println JsonOutput.toJson(json) // Valid JSON
-        println JsonOutput.prettyPrint(JsonOutput.toJson(json))
+      //  println JsonOutput.toJson(json) // Valid JSON
+      //  println JsonOutput.prettyPrint(JsonOutput.toJson(json))
+        println 'resultat ok'
         return JsonOutput.toJson(json)
     }
     
