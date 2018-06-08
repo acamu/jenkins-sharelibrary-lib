@@ -37,9 +37,10 @@ println 'call '+ urlToCall + ' ' + item
     
     return ''
    }
+  
+   println response
  }
- 
- println response
+
  return '-1'
 }
 
