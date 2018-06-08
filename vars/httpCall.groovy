@@ -10,7 +10,7 @@ import static groovyx.net.http.ContentType.JSON
 
 String callHTTPGET(String urlToCall, String item) {
  
-  def http1 = new HTTPBuilder('http://www.google.fr')
+  def http1 = new HTTPBuilder('')
 println http1
  
  def http = new HTTPBuilder()
@@ -21,7 +21,7 @@ println 'call '+ urlToCall + ' ' + item
  
  
  
- http.request('https://jsonplaceholder.typicode.com/posts/1', GET, JSON) { req ->
+ http.request('http://www.google.fr', GET, HTML) { req ->
   // uri.path = item // overrides any path in the default URL
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
   headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
