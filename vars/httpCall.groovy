@@ -8,14 +8,27 @@ import static groovyx.net.http.ContentType.HTML
 import static groovyx.net.http.ContentType.JSON
 
 String callHTTPGET(String urlToCall, String item) {
-def http = new HTTPBuilder(urlToCall)
- 
-http.get( path : '/', contentType : JSON, query : [q:'Groovy'] ) { resp, reader ->
-  println "response status: ${resp.statusLine}"
-  println 'Headers: -----------'
-  println 'Response data: -----'
-  println reader
-  println '\n--------------------'
+ def http = new HTTPBuilder()
+
+ http.request( 'urlToCall', GET, TEXT ) { req ->
+   uri.path = '/'
+   uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
+   headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
+   headers.Accept = 'application/json'
+
+   response.success = { resp, reader ->
+     assert resp.statusLine.statusCode == 200
+     println "Got response: ${resp.statusLine}"
+     println "Content-Type: ${resp.headers.'Content-Type'}"
+     println reader.text
+     return reader.text
+   }
+
+   response.'404' = {
+     println 'Not found'
+    
+    return ''
+   }
  }
 }
 
