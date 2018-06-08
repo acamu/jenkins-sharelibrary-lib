@@ -20,6 +20,7 @@ connection.setRequestProperty( 'User-Agent', 'groovy-2.4.4' )
 connection.setRequestProperty( 'Accept', 'application/json' )
 
 if ( connection.responseCode == 200 ) {
+ println connection
     // get the JSON response
     def json = connection.inputStream.withCloseable { inStream ->
         new JsonSlurper().parse( inStream as InputStream )
