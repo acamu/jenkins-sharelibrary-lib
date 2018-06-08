@@ -9,12 +9,15 @@ import static groovyx.net.http.ContentType.TEXT
 import static groovyx.net.http.ContentType.JSON
 
 String callHTTPGET(String urlToCall, String item) {
+ 
+  def http1 = new HTTPBuilder('http://www.google.fr')
+println http1
+ 
  def http = new HTTPBuilder()
  
 println 'call '+ urlToCall + ' ' + item
  
- def http = new groovyx.net.http.HTTPBuilder('http://www.google.fr')
-println http
+
  
  
  
