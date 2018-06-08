@@ -9,11 +9,40 @@ import static groovyx.net.http.ContentType.TEXT
 import static groovyx.net.http.ContentType.JSON
 import groovy.json.JsonSlurper
 
-
-
-
-
 String callHTTPGET(String urlToCall, String item) {
+ println 'call '+ urlToCall + ' ' + item 
+ 
+def connection = new URL(urlToCall).openConnection() as HttpURLConnection
+
+// set some headers
+connection.setRequestProperty( 'User-Agent', 'groovy-2.4.4' )
+connection.setRequestProperty( 'Accept', 'application/json' )
+
+    if ( connection.responseCode == 200 ) {
+     // get the response code - automatically sends the request
+     // println connection.responseCode + ": " + connection.inputStream.text
+        // get the JSON response
+       // def json = connection.inputStream.withCloseable { inStream ->
+        //    new JsonSlurper().parse( inStream as InputStream )
+
+      println 'GOOD'
+        }
+
+        // extract some data from the JSON, printing a report
+      //  def item = json.query.results.channel.item
+      //  println item.title
+      //  println "Temperature: ${item.condition?.temp}, Condition: ${item.condition?.text}"
+
+    } else {
+        println connection.responseCode + ": " + connection.inputStream.text
+    }
+ return ''
+}
+
+
+
+
+String callHTTPGET34(String urlToCall, String item) {
  
 def http = new HTTPBuilder()
  
