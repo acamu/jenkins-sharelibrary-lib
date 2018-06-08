@@ -5,6 +5,7 @@ import groovy.json.JsonOutput
 import groovyx.net.http.HTTPBuilder
 import static groovyx.net.http.Method.GET
 import static groovyx.net.http.ContentType.HTML
+import static groovyx.net.http.ContentType.TEXT 
 import static groovyx.net.http.ContentType.JSON
 
 String callHTTPGET(String urlToCall, String item) {
@@ -12,7 +13,7 @@ String callHTTPGET(String urlToCall, String item) {
  
 println 'call '+ urlToCall + ' ' + item
  
- http.request( urlToCall+item, GET, JSON ) { req ->
+ http.request( urlToCall+item, GET, TEXT  ) { req ->
   // uri.path = item // overrides any path in the default URL
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
   headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
@@ -32,17 +33,14 @@ println 'call '+ urlToCall + ' ' + item
 
    response.'400' = { resp ->
      println 'Bad Request'
-    
     return ''
    }
   
    response.'404' = { resp ->
      println 'Not found'
-    
     return ''
    }
   
-   println response
  }
 
  return '-1'
