@@ -48,7 +48,7 @@ def http = new HTTPBuilder()
  
 println 'call '+ urlToCall + ' ' + item 
  
- http.request(urlToCall, GET, TEXT) { req ->
+ http.request(urlToCall, GET, JSON) { req ->
   // uri.path = item // overrides any path in the default URL
   // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
   headers.'User-Agent' = "groovy-2.4.4"
