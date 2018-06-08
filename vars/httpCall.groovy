@@ -9,8 +9,8 @@ import static groovyx.net.http.ContentType.JSON
 
 String callHTTPGET(String urlToCall, String item) {
  def http = new HTTPBuilder()
-
- http.request( 'urlToCall', GET, JSON ) { req ->
+println 'call'
+ http.request( urlToCall, GET, JSON ) { req ->
    uri.path = '/'
    uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
    headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
@@ -30,6 +30,7 @@ String callHTTPGET(String urlToCall, String item) {
     return ''
    }
  }
+ return ''
 }
 
 String callHTTPGET1(String urlToCall, String item) {
