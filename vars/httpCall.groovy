@@ -5,6 +5,7 @@ import groovy.json.JsonOutput
 import groovyx.net.http.HTTPBuilder
 import static groovyx.net.http.Method.GET
 import static groovyx.net.http.ContentType.HTML
+import static groovyx.net.http.ContentType.JSON
 
 String callHTTPGET(String urlToCall, String item) {
 
