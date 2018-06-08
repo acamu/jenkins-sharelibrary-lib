@@ -25,6 +25,11 @@ println 'call '+ urlToCall + ' ' + item
      println reader.text
      return reader.text
    }
+  
+  response.failure ={
+     println "Got response: ${resp.statusLine}"
+     println "Content-Type: ${resp.headers.'Content-Type'}"
+  }
 
    response.'400' = {
      println 'Bad Request'
