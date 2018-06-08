@@ -10,9 +10,7 @@ import static groovyx.net.http.ContentType.JSON
 String callHTTPGET1(String urlToCall, String item) {
 def http = new HTTPBuilder(urlToCall)
  
-http.get( path : '/',
-          contentType : TEXT,
-          query : [q:'Groovy'] ) { resp, reader ->
+http.get( path : '/', contentType : JSON, query : [q:'Groovy'] ) { resp, reader ->
  
   println "response status: ${resp.statusLine}"
   println 'Headers: -----------'
