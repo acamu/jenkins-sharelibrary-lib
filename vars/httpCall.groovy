@@ -10,7 +10,7 @@ import static groovyx.net.http.ContentType.JSON
 String callHTTPGET(String urlToCall, String item) {
  def http = new HTTPBuilder()
  
-println 'call '+ urlToCall
+println 'call '+ urlToCall + ' ' + item
  
  http.request( urlToCall, GET, JSON ) { req ->
    uri.path = item
