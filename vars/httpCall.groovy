@@ -28,6 +28,7 @@ println 'call '+ urlToCall + ' ' + item
    }
   
   response.failure = { resp ->
+     println "Unexpected failure: ${resp.statusLine}"
      println 'failure'
   }
 
