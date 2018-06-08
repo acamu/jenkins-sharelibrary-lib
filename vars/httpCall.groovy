@@ -38,6 +38,8 @@ println 'call '+ urlToCall + ' ' + item
     return ''
    }
  }
+ 
+ println response
  return '-1'
 }
 
