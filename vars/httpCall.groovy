@@ -7,7 +7,25 @@ import static groovyx.net.http.Method.GET
 import static groovyx.net.http.ContentType.HTML
 import static groovyx.net.http.ContentType.JSON
 
-String callHTTPGET(String urlToCall, String item) {
+String callHTTPGET1(String urlToCall, String item) {
+def http = new HTTPBuilder(urlToCall)
+ 
+http.get( path : '/search',
+          contentType : TEXT,
+          query : [q:'Groovy'] ) { resp, reader ->
+ 
+  println "response status: ${resp.statusLine}"
+  println 'Headers: -----------'
+  resp.headers.each { h ->
+    println " ${h.name} : ${h.value}"
+  }
+  println 'Response data: -----'
+  System.out << reader
+  println '\n--------------------'
+}
+}
+
+String callHTTPGET1(String urlToCall, String item) {
 
 HTTPBuilder http = new HTTPBuilder(urlToCall, JSON);
     
