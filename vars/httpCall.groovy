@@ -22,8 +22,9 @@ connection.setRequestProperty( 'Accept', 'application/json' )
 if ( connection.responseCode == 200 ) {
  println connection
     // get the JSON response
-    def json = connection.inputStream.withCloseable { inStream ->
-        new JsonSlurper().parse( inStream as InputStream )
+   // def json = connection.inputStream.withCloseable { inStream ->
+    //    new JsonSlurper().parse( inStream as InputStream )
+   println(connection.getInputStream().getText());
     }
 
  println 'GOOD'
@@ -41,7 +42,7 @@ if ( connection.responseCode == 200 ) {
 
 
 
-String callHTTPGET(String urlToCall, String item) {
+String callHTTPGET2(String urlToCall, String item) {
  
 def http = new HTTPBuilder()
  
