@@ -9,7 +9,7 @@ import static groovyx.net.http.ContentType.HTML
 String callHTTPGET(String urlToCall, String item) {
 
 HTTPBuilder http = new HTTPBuilder(urlToCall, ContentType.JSON);
-http.headers.Accept = ContentType.JSON
+http.headers.Accept = JSON
 http.parser[JSON] = http.parser.'application/json'
 http.request(GET) {
     response.success = { resp, json ->
