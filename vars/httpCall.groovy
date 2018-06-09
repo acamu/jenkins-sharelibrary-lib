@@ -9,78 +9,72 @@ import static groovyx.net.http.ContentType.TEXT
 import static groovyx.net.http.ContentType.JSON
 import groovy.json.JsonSlurper
 
-String callHTTPGET111(String urlToCall, String item) {
- println 'call '+ urlToCall + ' ' + item 
- 
-def connection = new URL(urlToCall).openConnection() as HttpURLConnection
+  static String callHTTPGET(String urlToCall, String item) {
+        println 'call ' + urlToCall + ' ' + item
+
+        def connection = new URL(urlToCall).openConnection() as HttpURLConnection
 
 // set some headers
-connection.setRequestProperty( 'User-Agent', 'groovy-2.4.4' )
-connection.setRequestProperty( 'Accept', 'application/json' )
+        connection.setRequestProperty('User-Agent', 'groovy-2.4.4')
+        connection.setRequestProperty('Accept', 'application/json')
 
-    if ( connection.responseCode == 200 ) {
-     // get the response code - automatically sends the request
-     String dataaa = connection.inputStream.text
-      println connection.responseCode + ": " + dataaa
-        // get the JSON response
-       // def json = connection.inputStream.withCloseable { inStream ->
-        //    new JsonSlurper().parse( inStream as InputStream )
-    //}
-      return dataaa
-        // extract some data from the JSON, printing a report
-      //  def item = json.query.results.channel.item
-      //  println item.title
-      //  println "Temperature: ${item.condition?.temp}, Condition: ${item.condition?.text}"
+        if (connection.responseCode == 200) {
+            // get the response code - automatically sends the request
+            String dataaa = connection.inputStream.text
+            println connection.responseCode + ": " + dataaa
 
-    } else {
-        println connection.responseCode + ": " + connection.inputStream.text
-     return ''
+            return dataaa
+
+        } else {
+            println connection.responseCode + ": " + connection.inputStream.text
+            return ''
+        }
+        return ''
     }
- return ''
-}
 
+    static String callHTTPGET2(String urlToCall, String item) {
 
+        String valuett= ''
+        def http = new HTTPBuilder()
 
+        println 'call ' + urlToCall + ' ' + item
 
-String callHTTPGET(String urlToCall, String item) {
- 
-def http = new HTTPBuilder()
- 
-println 'call '+ urlToCall + ' ' + item 
- 
- http.request(urlToCall, GET, JSON) { req ->
-  // uri.path = item // overrides any path in the default URL
-  // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
-  headers.'User-Agent' = "groovy-2.4.4"
-  headers.'Accept' = 'application/json'
+        http.request(urlToCall, GET, TEXT) { req ->
+            // uri.path = '/' //item // overrides any path in the default URL
+            // uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
+            headers.'User-Agent' = "groovy-2.4.4"
+            headers.'Accept' = 'application/json'
 
-   response.success = { resp, reader ->
-     //assert resp.statusLine.statusCode == 200
-     println "Got response: ${resp.statusLine}"
-     println "Content-Type: ${resp.headers.'Content-Type'}"
-     println reader.text
-     return reader.text
-   }
-  
-  response.failure = { resp ->
-     println "Unexpected failure: ${resp.statusLine}"
-     println 'failure'
-  }
+            response.success = { resp, reader ->
+                //assert resp.statusLine.statusCode == 200
+                println "Got response: ${resp.statusLine}"
+                println "Content-Type: ${resp.headers.'Content-Type'}"
+                
 
-   response.'400' = { resp ->
-     println 'Bad Request'
-    return ''
-   }
-  
-   response.'404' = { resp ->
-     println 'Not found'
-    return ''
-   }
-  
- }
+                println 'Response data: -----'
+                valuett = reader.text
+                println '\n--------------------'
+                println '==>'+valuett
+                println '\n--------------------'
+            }
 
- return '-1'
-}
+            response.failure = { resp ->
+                println "Unexpected failure: ${resp.statusLine}"
+                println 'failure'
+            }
+
+            response.'400' = { resp ->
+                println 'Bad Request'
+            }
+
+            response.'404' = { resp ->
+                println 'Not found'
+            }
+
+        }
+
+        return valuett
+    }
 
 String callHTTPGET1(String urlToCall, String item) {
 
